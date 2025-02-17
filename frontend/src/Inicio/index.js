@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { AutenticadoContexto } from '../Contexts/authContexts'
 import { Link } from 'react-router-dom'
-import './estilo.inicio.scss'
+import './index.css'
 import { toast } from 'react-toastify'
 
 export default function Inicio() {
@@ -20,19 +20,20 @@ export default function Inicio() {
         try {
             await loginEntrada(email, password)
         } catch (err) {
-            
+            toast.error('Erro ao tentar login.')
         }
     }
 
     return (
-        <div className='conteinerInicioGeral'>
-            <h1>Pagina de Inicio CRUD Login</h1>
-            <form onSubmit={dadosLogin}>
+        <div className='containerInicioGeral'>
+            <h1>Login CRUD</h1>
+            <form onSubmit={dadosLogin} className='login-form'>
                 <input
-                    type="text"
+                    type="email"
                     placeholder='Digite o E-mail'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className='input-field'
                 />
 
                 <input
@@ -40,11 +41,12 @@ export default function Inicio() {
                     placeholder='Digite a Senha'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className='input-field'
                 />
 
-                <button>Enviar</button>
+                <button className='submit-button'>Enviar</button>
             </form>
-            <p>Para se cadastrar clique <Link to='/CadastroUsuarios'>AQUI</Link> </p>
+            <p className='register-link'>Não tem uma conta? Clique <Link to='/CadastroUsuarios'>aqui</Link> para se cadastrar.</p>
         </div>
     )
 }

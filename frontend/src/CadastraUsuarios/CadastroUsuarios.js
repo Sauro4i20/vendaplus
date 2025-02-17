@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './estilo.cadUsuarios.scss'
+import './CadastroUsuarios.css'
 import { toast } from 'react-toastify'
 import apiLocal from './../Api/apiLocal'
 
@@ -39,26 +39,29 @@ export default function CadastrarUsuarios() {
     return (
         <div className='conteinerCadastroUsuariosGeral'>
             <h1>Formulario de Cadastro de Usuários</h1>
-            <form onSubmit={cadastroUsuarios}>
+            <form onSubmit={cadastroUsuarios} className=''>
                 <input
                     type="text"
                     placeholder='Digite Seu Nome'
                     value={nome}
                     onChange={(e) => setNome(e.target.value)}
+                    className=''
                 />
                 <input
                     type="text"
                     placeholder='Digite Seu E-Mail'
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                     className=''
                 />
                 <input
                     type="password"
                     placeholder='Digite Sua Senha'
                     value={password}
                     onChange={(e) => setpassword(e.target.value)}
+                     className=''
                 />
-                <button type='submit'>Enviar</button>
+                <button type='submit' className=''>Enviar</button>
             </form>
             <Link to='/' className='buttonVoltar' >Voltar Inicio</Link>
         </div>
